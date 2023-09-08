@@ -5,7 +5,6 @@ export default {
     return {
       navLinks: [
         { name: 'Home', path: '/' },
-        { name: 'About', path: '/about' }
       ]
     };
   }
@@ -19,12 +18,8 @@ export default {
         <img src="~/assets/images/logo.png" alt="Logo" class=" h-12 mr-2 inline" />
       </div>
       <nav>
-        <router-link
-          v-for="link in navLinks"
-          :key="link.name"
-          :to="link.path"
-          class="text-white hover:text-gray-200 mr-4"
-        >
+        <router-link v-for="link in navLinks" :key="link.name" :to="link.path"
+          class="text-white hover:text-gray-200 mr-4">
           {{ link.name }}
         </router-link>
       </nav>
@@ -36,5 +31,6 @@ export default {
 .main-header {
   background: $main-color;
 }
+
 /* Add any custom styles here */
 </style>

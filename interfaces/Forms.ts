@@ -1,4 +1,4 @@
-export interface BaseFormInputProps {
+export interface FormInputTextProps {
     name: string;
     label: string;
     modelValue: any;
@@ -7,4 +7,3 @@ export interface BaseFormInputProps {
     hideLabel?: boolean;
     placeholder?: string;
   }
-  

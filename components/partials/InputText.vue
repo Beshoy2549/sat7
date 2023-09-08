@@ -1,9 +1,14 @@
 <script lang="ts" setup>
-import type { FormInputTextProps } from '@/interfaces/Forms'
-/**
- *  @description This component to handle  form components [el-input] With VeeValidate
- */
-// #region Props
+
+interface FormInputTextProps {
+  name: string;
+  label: string;
+  modelValue: any;
+  rules?: string;
+  disabled?: boolean;
+  hideLabel?: boolean;
+  placeholder?: string;
+}
 
 const props = withDefaults(defineProps<FormInputTextProps>(), {
   rules: '',
@@ -11,7 +16,6 @@ const props = withDefaults(defineProps<FormInputTextProps>(), {
   placeholder: ''
 })
 
-// #endregion
 
 // #region Emits
 const emit = defineEmits<{ (e: 'update:modelValue', value: any): void }>()
@@ -34,11 +38,12 @@ const value = computed({
     <VeeField v-slot="{ handleChange, errorMessage, handleBlur }" v-model="value" :name="name" :label="label"
       :rules="rules">
       <label :for="email" class="text-sm leading-7">{{ label }}</label>
-      <input v-bind="$attrs" :model-value="value" :disabled="disabled" :placeholder="placeholder"
-        @update:model-value="handleChange" @blur="handleBlur">
-      </input>
-      <p class="text-red-500" v-if="errorMessage"> {{ errorMessage }}</p>
+      <input v-bind="$attrs" v-model="value" :disabled="disabled" :placeholder="placeholder"
+        @update:model-value="handleChange" @blur="handleBlur"
+        class="bg-opacity-20 w-full rounded border border-gray-600 bg-transparent py-1 px-3 text-base leading-8 outline-none transition-colors duration-200 ease-in-out placeholder:text-gray-500 focus:border-blue-500 focus:bg-transparent focus:ring-2 focus:ring-transparent" />
+      <p class="text-red-500" v-if="errorMessage">{{ errorMessage }}</p>
     </VeeField>
+
   </div>
 </template>
 
