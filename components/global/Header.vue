@@ -32,9 +32,9 @@ export default {
   </header>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .main-header {
-  background: #071a3b;
+  background: $main-color;
 }
 /* Add any custom styles here */
 </style>
