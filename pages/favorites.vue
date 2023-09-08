@@ -14,9 +14,10 @@
                 </swiper-slide>
             </Swiper>
         </template>
-        <template v-else>
-             <!-- If no data is available, show this message instead of the swiper slides-->
-             <div class="d-flex justify-center text-center mt-8 ">
+        <div>{{ data }}</div>
+        <template>
+            <!-- If no data is available, show this message instead of the swiper slides-->
+            <div class="d-flex justify-center text-center mt-8 ">
                 Loading...
             </div>
         </template>
@@ -26,7 +27,6 @@
 
 <script setup lang="ts">
 import FavoritesServices from "@/services/favorites/favorites"
-import { useFavoritesStore } from '~/stores/favorites';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
 
@@ -45,18 +45,21 @@ const getFavoriteList = async () => {
     })
 }
 
-const truncateDescription = (description:any) => {
-      const maxLength = 200;
-      if (description.length <= maxLength) {
-        return description;
-      } else {
-        return description.slice(0, maxLength) + '...';
-      }
- }
+const { data, refresh } = await useAsyncData(
+    '',
+    () => getFavoriteList(),
+)
 
-getFavoriteList()
+
+const truncateDescription = (description: any) => {
+    const maxLength = 200;
+    if (description.length <= maxLength) {
+        return description;
+    } else {
+        return description.slice(0, maxLength) + '...';
+    }
+}
+
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

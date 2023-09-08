@@ -8,15 +8,14 @@ const api = axios.create({
 
 // Interceptor for adding the authentication token to the headers
 api.interceptors.request.use((config) => {
-  let authToken = '' as any; 
-  if (process.client) {
-    authToken = localStorage.getItem("authToken") 
-  }
-  
-  if (authToken) {
+  let authToken = useCookie('authUser')
+
+  if (authToken.value) {
     // config.headers.Authorization = `Bearer ${authToken}`;
-    config.headers.Authorization = `${authToken}`;
+    config.headers.Authorization = `${authToken.value.auth_token}`;
   }
+
+
   return config;
 });
 
@@ -36,7 +35,7 @@ api.interceptors.response.use(
         error.response.data
       );
       if (error.response.status == 401) {
-        router.push('/signin')
+        router.push('/auth/sign-in')
       }
     } else if (error.request) {
       // The request was made but no response was received

@@ -1,11 +1,12 @@
 <template>
   <div>
+
     <!-- Include the Header component -->
     <Header />
 
     <!-- Content of your page goes here -->
     <div>
-      <slot />
+      <NuxtPage />
     </div>
   </div>
 </template>
@@ -19,3 +20,5 @@ export default {
   },
 };
 </script>
+
+

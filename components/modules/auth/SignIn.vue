@@ -5,8 +5,6 @@ import { useRouter } from 'vue-router';
 import FormInputText from "@/components/partials/InputText.vue"
 import ErrorAlart from "@/components/partials/Alart.vue"
 
-
-
 const dynamicForm = ref<any>(null)
 
 // Define the types for your data
@@ -26,12 +24,10 @@ const formData = reactive<FormData>({
     password: '',
 });
 
-// Create the vuelidate instance
 
 // Define the login function
 const login = () => {
     isLoading.value = true;
-
     let payload = {
         device_os: "Mac OSX",
         device_type: "browser",
@@ -42,19 +38,14 @@ const login = () => {
 
     AuthServices.loginService(payload)
         .then((response) => {
-            store.isAuthenticated = true;
-            useAuthStore().setAuthToken(response.data.auth_token);
-            store.setUser(response.data.data);
+            store.setAuthUser(response.data);
             isLoading.value = false;
             router.push('/');
         })
         .catch((err) => {
-
             isLoading.value = false;
             error.value = err.response.data.message
-            console.error(error.value);
         });
-
 };
 
 async function submitForm() {
@@ -74,11 +65,11 @@ async function submitForm() {
             <ErrorAlart :error="error" v-if="error" />
             <h2 class="mb-5 text-lg font-medium">Log In</h2>
             <div class=" mb-4">
-                <FormInputText v-model="formData.email" label="email" name="email" rules="required">
+                <FormInputText v-model="formData.email" label="Email" name="email" rules="required">
                 </FormInputText>
             </div>
             <div class=" mb-4">
-                <FormInputText v-model="formData.password" label="password" name="password" rules="required|min:6"
+                <FormInputText v-model="formData.password" label="Password" name="password" rules="required|min:6"
                     type="password">
                 </FormInputText>
             </div>

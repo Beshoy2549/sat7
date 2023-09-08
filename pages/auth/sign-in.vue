@@ -1,16 +1,15 @@
 
 <template>
-    <div>
-      <!-- Include the Header component -->
-      <SignIn />
-    </div>
-  </template>
+  <div>
+    <SignIn />
+  </div>
+</template>
 <script>
-import SignIn from '@/components/modules/auth/SignIn.vue'; 
+import SignIn from '@/components/modules/auth/SignIn.vue';
 
 export default {
   components: {
-      SignIn,
+    SignIn,
   },
 };
 </script>
