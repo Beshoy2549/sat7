@@ -14,9 +14,7 @@
     .lineTrim-#{$limit} {
         overflow: hidden;
         display: -webkit-box;
-        -webkit-box-orient: vertical;
-        //-----
-        -webkit-line-clamp: $limit;
+
     }
 }
 

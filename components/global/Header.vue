@@ -12,6 +12,9 @@
         <router-link class="sign-in" :to="'/auth/sign-in'" v-if="!isAuthenticated">
           Sign In
         </router-link>
+        <button class="log-out" @click="logout()" v-else>
+          Log Out
+        </button>
       </nav>
     </div>
   </header>
@@ -20,8 +23,10 @@
 <script setup>
 import { ref, computed } from 'vue';
 import { useAuthStore } from '~/stores/auth';
+import { useRouter } from 'vue-router';
 
 const store = useAuthStore();
+const router = useRouter();
 
 const navLinks = ref([
   { name: 'Home', path: '/' },
@@ -29,13 +34,21 @@ const navLinks = ref([
 ]);
 
 const isAuthenticated = computed(() => store.isAuthenticated);
+// Define the logout method
+const logout = () => {
+  store.authUser = {}
+  const authUser = useCookie('authUser')
+  authUser.value = ""
+  router.push('/');
+};
 </script>
 
 <style lang="scss" scoped>
 .main-header {
   background: $main-color;
 
-  .sign-in {
+  .sign-in,
+  .log-out {
     background: $secondary-color;
     color: #fff;
     padding: 15px;

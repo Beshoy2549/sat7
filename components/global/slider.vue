@@ -1,8 +1,6 @@
 <template>
-    <!-- Add Swiper component here to display project cards -->
     <Swiper :autoplay="true" :breakpoints="breakpoints" :space-between="50" :modules="modules"
         :pagination="{ clickable: true }">
-        <!-- Use v-for to iterate over project items and create cards -->
         <swiper-slide class="swiper-slide pb-12" v-for="item in items" :key="item.id">
             <!-- Display project details here -->
             <Card :project="item" />
@@ -15,10 +13,10 @@ import Card from '@/components/shared/Card.vue';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 const breakpoints = ref({
     "@0.50": {
-        slidesPerView: 1.5
+        slidesPerView: 1.25
     },
     "@1.00": {
-        slidesPerView: 2.5
+        slidesPerView: 2.25
     },
     "@1.50": {
         slidesPerView: 3
