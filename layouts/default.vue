@@ -5,9 +5,7 @@
     <Header />
 
     <!-- Content of your page goes here -->
-    <div>
-      <NuxtPage />
-    </div>
+    <NuxtPage />
   </div>
 </template>
 

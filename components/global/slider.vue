@@ -9,7 +9,6 @@
 </template>
   
 <script setup>
-import Card from '@/components/shared/Card.vue';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
 const breakpoints = ref({

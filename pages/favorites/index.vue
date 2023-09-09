@@ -3,6 +3,7 @@
 import FavoritesServices from "@/services/favorites/favorites"
 import FavsSlider from '@/components/global/slider.vue';
 import Loader from '@/components/global/Loader.vue';
+import Card from '@/components/shared/Card.vue';
 
 const projects = ref([]) as any
 const isLoading = ref(false)
