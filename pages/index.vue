@@ -11,7 +11,7 @@ const isLoading = ref(false)
 const getHomeProjects = async () => {
     isLoading.value = true;
     await HomeServices.projectsService().then((res: any) => {
-        projects.value = res.blocks[4].projects
+        projects.value = res.blocks[3].projects
         isLoading.value = false
     }).catch((err: any) => {
         console.log("error", err);
