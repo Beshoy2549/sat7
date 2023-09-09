@@ -48,16 +48,13 @@ const toggleFavorite = () => {
         display: -webkit-box;
         -webkit-box-orient: vertical;
         /* For Webkit-based browsers */
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 4;
         /* Standard property */
-        line-clamp: 3;
+        line-clamp: 4;
     }
 
-    /* Add scale effect on hover */
     &:hover {
-        /* Increase the scale factor for more zoom */
         transition: transform 0.2s ease-in-out;
-        /* Add smooth transition */
     }
 }
 
