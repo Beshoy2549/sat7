@@ -3,7 +3,7 @@
         :pagination="{ clickable: true }">
         <swiper-slide class="swiper-slide pb-12" v-for="item in items" :key="item.id">
             <!-- Display project details here -->
-            <Card :project="item" />
+            <slot :item="item"></slot>
         </swiper-slide>
     </Swiper>
 </template>

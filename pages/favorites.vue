@@ -34,7 +34,12 @@ const { data, refresh } = await useAsyncData(
         <div class=" min-h-screen container mx-auto px-5 py-24  ">
             <h1 class="text-2xl font-bold mb-4">Favorites List</h1>
             <template v-if="projects && !isLoading">
-                <FavsSlider :items="projects" />
+                <FavsSlider :items="projects">
+                    <template v-slot:default="slotProps">
+                        <!-- Here, you can access slotProps.item which is each item of your items array -->
+                        <Card :project="slotProps.item" />
+                    </template>
+                </FavsSlider>
             </template>
             <template v-else>
                 <Loader :loading="isLoading" />
