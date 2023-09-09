@@ -1,22 +1,7 @@
-<template>
-    <section class="home">
-        <div class=" min-h-screen container mx-auto px-5 py-24 ">
-            <h1 class="text-2xl font-bold mb-4">Home</h1>
-            <template v-if="projects && !isLoading">
-                <Slider :items="projects" />
-            </template>
-            <template v-else>
-                <loader :loading="isLoading" />
-            </template>
-        </div>
-    </section>
-</template>
-
-
 <script setup lang="ts">
 import HomeServices from "@/services/home/home"
 import Slider from '@/components/global/slider.vue';
-import loader from '@/components/global/Loader.vue';
+import Loader from '@/components/global/Loader.vue';
 
 
 const projects = ref([]) as any
@@ -33,8 +18,26 @@ const getHomeProjects = async () => {
     })
 }
 
+
+
 getHomeProjects()
 </script>
+<template>
+    <section class="home">
+        <div class=" min-h-screen container mx-auto px-5 py-24 ">
+            <h1 class="text-2xl font-bold mb-4">Home</h1>
+            <template v-if="projects && !isLoading">
+                <Slider :items="projects" />
+            </template>
+            <template v-else>
+                <Loader :loading="isLoading" />
+            </template>
+        </div>
+    </section>
+</template>
+
+
+
 
 <style lang="scss" scoped>
 .home {

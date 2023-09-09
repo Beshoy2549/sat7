@@ -11,6 +11,7 @@
 <script setup>
 import Card from '@/components/shared/Card.vue';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+
 const breakpoints = ref({
     "@0.50": {
         slidesPerView: 1.25
@@ -33,16 +34,15 @@ const props = defineProps({
 });
 </script>
   
-<style lang="scss" scoped>
-.main-header {
-    background: $main-color;
+<style lang="scss" >
+.swiper-pagination-bullet {
+    opacity: 1;
+    background-color: #fff;
+    color: #fff;
+}
 
-    .sign-in {
-        background: $secondary-color;
-        color: #fff;
-        padding: 15px;
-        border-radius: 5px;
-    }
+.swiper-pagination-bullet-active {
+    background-color: #007aff;
 }
 
 /* Add any custom styles here */

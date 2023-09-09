@@ -1,20 +1,3 @@
-<template>
-    <div class="card overflow-hidden border border-gray-300 rounded-lg shadow-lg p-4">
-        <!-- New card design -->
-        <div class="relative">
-            <img :src="project.image" class="w-full rounded-lg h-48 object-cover">
-            <!-- Favorite button in the top-right corner -->
-            <button @click="toggleFavorite" :class="isFavorite ? 'text-red-500 bg-red-700' : 'text-white bg-blue-500'"
-                class="absolute top-2 right-2 p-2 rounded-full focus:outline-none">
-                <Icon :name="`heroicons-solid:heart`" :class="isFavorite ? 'bg-red-700' : ''" class="w-6 h-6" />
-            </button>
-        </div>
-        <div class="mt-4">
-            <h2 class="text-lg font-semibold">{{ project.title }}</h2>
-            <p class="description mt-2">{{ project.description }}</p>
-        </div>
-    </div>
-</template>
   
 <script setup lang="ts">
 import { ref, defineProps } from 'vue';
@@ -40,6 +23,24 @@ const toggleFavorite = () => {
 };
 </script>
   
+<template>
+    <div class="card overflow-hidden border border-gray-300 rounded-lg shadow-lg p-4">
+        <!-- New card design -->
+        <div class="relative">
+            <img :src="project.image" class="w-full rounded-lg h-48 object-cover">
+            <!-- Favorite button in the top-right corner -->
+            <button @click="toggleFavorite" :class="isFavorite ? 'text-red-500 bg-red-700' : 'text-white bg-blue-500'"
+                class="absolute top-2 right-2 p-2 rounded-full focus:outline-none">
+                <Icon :name="`heroicons-solid:heart`" :class="isFavorite ? 'bg-red-700' : ''" class="w-6 h-6" />
+            </button>
+        </div>
+        <div class="mt-4">
+            <h2 class="text-lg font-semibold">{{ project.title }}</h2>
+            <p class="description mt-2">{{ project.description }}</p>
+        </div>
+    </div>
+</template>
+
 <style lang="scss" scoped>
 .card {
     .description {
@@ -51,8 +52,20 @@ const toggleFavorite = () => {
         /* Standard property */
         line-clamp: 3;
     }
+
+    /* Add scale effect on hover */
+    &:hover {
+        /* Increase the scale factor for more zoom */
+        transition: transform 0.2s ease-in-out;
+        /* Add smooth transition */
+    }
 }
 
 /* Add any additional styling here */
 </style>
-  
+
+
+
+
+
+
