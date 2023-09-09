@@ -1,0 +1,24 @@
+@mixin lineTrim {
+    $limits: (
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    );
+
+// -----
+@each $limit in $limits {
+
+    .lineTrim-#{$limit} {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        //-----
+        -webkit-line-clamp: $limit;
+    }
+}
+
+// ".lineTrim-3"
+}

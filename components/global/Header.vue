@@ -25,6 +25,7 @@ const store = useAuthStore();
 
 const navLinks = ref([
   { name: 'Home', path: '/' },
+  { name: 'Favorites', path: '/favorites' },
 ]);
 
 const isAuthenticated = computed(() => store.isAuthenticated);
