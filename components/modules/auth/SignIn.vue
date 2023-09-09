@@ -65,7 +65,7 @@ async function submitForm() {
             <ErrorAlart :error="error" v-if="error" />
             <h2 class="mb-5 text-lg font-medium">Log In</h2>
             <div class=" mb-4">
-                <FormInputText v-model="formData.email" label="Email" name="email" rules="required">
+                <FormInputText v-model="formData.email" label="Email" name="email" rules="required|email">
                 </FormInputText>
             </div>
             <div class=" mb-4">

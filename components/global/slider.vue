@@ -29,7 +29,7 @@ const breakpoints = ref({
 
 const modules = [Navigation, Pagination, Scrollbar, A11y]
 const props = defineProps({
-    items: Array, // Define the 'project' prop of type Object
+    items: Array,
 });
 </script>
   
